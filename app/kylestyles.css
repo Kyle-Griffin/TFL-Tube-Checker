@@ -1,0 +1,64 @@
+:root {
+  --color-bakerloo: #b26300;
+  --color-central: #dc241f;
+  --color-circle: #ffd329;
+  --color-district: #007d32;
+  --color-hammersmith-city: #f4a9be;
+  --color-jubilee: #a1a5a7;
+  --color-metropolitan: #9b0058;
+  --color-northern: #000000;
+  --color-piccadilly: #0019a8;
+  --color-victoria: #0098d8;
+  --color-waterloo-city: #93ceba;
+}
+
+.tubeLine-bakerloo {
+  background-color: var(--color-bakerloo);
+}
+
+.tubeLine-central {
+  background-color: var(--color-central);
+}
+
+.tubeLine-circle {
+  background-color: var(--color-circle);
+}
+
+.tubeLine-district {
+  background-color: var(--color-district);
+}
+
+.tubeLine-hammersmith-city {
+  background-color: var(--color-hammersmith-city);
+}
+
+.tubeLine-jubilee {
+  background-color: var(--color-jubilee);
+}
+
+.tubeLine-metropolitan {
+  background-color: var(--color-metropolitan);
+}
+
+.tubeLine-northern {
+  background-color: var(--color-northern);
+}
+
+.tubeLine-piccadilly {
+  background-color: var(--color-piccadilly);
+}
+
+.tubeLine-victoria {
+  background-color: var(--color-victoria);
+}
+
+.tubeLine-waterloo-city {
+  background-color: var(--color-waterloo-city);
+}
+
+.tubeLine-circle,
+.tubeLine-hammersmith-city,
+.tubeLine-jubilee,
+.tubeLine-waterloo-city {
+  color: black;
+}
