@@ -1,12 +1,13 @@
 import TubeStatusList from "./tubeStatusList";
 import TubeStopSearch from "./tubeStopSearch";
+import Header from "./Header";
 import { ChangeEventHandler } from "react";
 
 /* Type inference for Tube Line Status */
 type TubeLineTypes = {
   id: string;
   name: string;
-  lineStatuses: [{ statusSeverityDescription: string }];
+  lineStatuses: [{ statusSeverityDescription: string; reason?: string }];
 };
 
 type StatusProps = {
@@ -23,17 +24,23 @@ export default async function Home() {
   const tubeLineData: TubeLineTypes[] = await getTubeData();
 
   return (
-    <main className="flex min-h-screen flex-col items-center p-24">
-      <h1 className="text-3xl text-center mb-12">When is your next train?</h1>
+    <div className="bg-slate-200 min-h-dvh">
+      <Header />
+      <main className="grid md:grid-cols-2 gap-4 p-4 md:mt-4">
+        <div className="bg-white p-4 rounded-lg">
+          <h1 className="text-3xl mb-4">When is your next train?</h1>
+          <p className="mb-1">
+            Select your tube station from the dropdown to see upcoming trains
+            for that station:
+          </p>
+          <TubeStopSearch />
+        </div>
 
-      <div className="flex items-center justify-center flex-col w-full mb-16">
-        <TubeStopSearch />
-      </div>
-
-      <div className="flex items-center justify-center flex-col w-full p-4 bg-white rounded-lg">
-        <h2 className="text-black text-2xl mb-4">Current Tube Status</h2>
-        <TubeStatusList tubeLineData={tubeLineData} />
-      </div>
-    </main>
+        <div className="flex items-center justify-center flex-col p-4 bg-white rounded-lg">
+          <h2 className="text-black text-2xl mb-4">Current Tube Status</h2>
+          <TubeStatusList tubeLineData={tubeLineData} />
+        </div>
+      </main>
+    </div>
   );
 }

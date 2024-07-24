@@ -1,7 +1,7 @@
 type tubeLineTypes = {
   id: string;
   name: string;
-  lineStatuses: [{ statusSeverityDescription: string }];
+  lineStatuses: [{ statusSeverityDescription: string; reason?: string }];
 };
 
 type tubeStatusListProps = {
@@ -15,10 +15,28 @@ const TubeStatusList: React.FC<tubeStatusListProps> = ({ tubeLineData }) => {
         return (
           <div
             key={tubeLine.id}
-            className={`tubeLine-${tubeLine.id} w-full py-1 px-4 font-bold flex justify-between`}
+            className="tubeLine w-full flex-col flex justify-between"
           >
-            <span>{tubeLine.name}</span>
-            <span>{tubeLine.lineStatuses[0].statusSeverityDescription}</span>
+            <div
+              className={`tubeLine-item tubeLine-item--${tubeLine.id} py-1 px-4 flex justify-between`}
+            >
+              <span>{tubeLine.name}</span>
+              <span
+                className={
+                  tubeLine.lineStatuses[0].statusSeverityDescription !==
+                  "Good Service"
+                    ? "font-bold"
+                    : null
+                }
+              >
+                {tubeLine.lineStatuses[0].statusSeverityDescription}
+              </span>
+            </div>
+            {tubeLine.lineStatuses[0].reason ? (
+              <div className="tubeLine-reason px-4 py-3 mx-4 mb-2 rounded-b-sm bg-slate-300 text-black">
+                <p>{tubeLine.lineStatuses[0].reason}</p>
+              </div>
+            ) : null}
           </div>
         );
       })}

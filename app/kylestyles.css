@@ -12,53 +12,57 @@
   --color-waterloo-city: #93ceba;
 }
 
-.tubeLine-bakerloo {
+.tubeLine-item--bakerloo {
   background-color: var(--color-bakerloo);
 }
 
-.tubeLine-central {
+.tubeLine-item--central {
   background-color: var(--color-central);
 }
 
-.tubeLine-circle {
+.tubeLine-item--circle {
   background-color: var(--color-circle);
 }
 
-.tubeLine-district {
+.tubeLine-item--district {
   background-color: var(--color-district);
 }
 
-.tubeLine-hammersmith-city {
+.tubeLine-item--hammersmith-city {
   background-color: var(--color-hammersmith-city);
 }
 
-.tubeLine-jubilee {
+.tubeLine-item--jubilee {
   background-color: var(--color-jubilee);
 }
 
-.tubeLine-metropolitan {
+.tubeLine-item--metropolitan {
   background-color: var(--color-metropolitan);
 }
 
-.tubeLine-northern {
+.tubeLine-item--northern {
   background-color: var(--color-northern);
 }
 
-.tubeLine-piccadilly {
+.tubeLine-item--piccadilly {
   background-color: var(--color-piccadilly);
 }
 
-.tubeLine-victoria {
+.tubeLine-item--victoria {
   background-color: var(--color-victoria);
 }
 
-.tubeLine-waterloo-city {
+.tubeLine-item--waterloo-city {
   background-color: var(--color-waterloo-city);
 }
 
-.tubeLine-circle,
-.tubeLine-hammersmith-city,
-.tubeLine-jubilee,
-.tubeLine-waterloo-city {
+.tubeLine-item {
+  color: white;
+}
+
+.tubeLine-item--circle,
+.tubeLine-item--hammersmith-city,
+.tubeLine-item--jubilee,
+.tubeLine-item--waterloo-city {
   color: black;
 }

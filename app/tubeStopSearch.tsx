@@ -6,6 +6,7 @@ import { useState } from "react";
 /* Type inference for Tube Stops */
 type TubeStopTypes = {
   naptanID: string;
+  commonName: string;
 };
 
 function TubeStopSearch() {
@@ -13,7 +14,7 @@ function TubeStopSearch() {
 
   async function onTubeStopChange(event: React.ChangeEvent<HTMLSelectElement>) {
     const select = event.target;
-    setTubeStop(select.children[select.selectedIndex].id);
+    setTubeStop(select.children[select.selectedIndex].commonName);
 
     await fetch(`https://api.tfl.gov.uk/Line/piccadilly/Arrivals/${tubeStop}`)
       .then((data: any) => data.json())
@@ -21,16 +22,14 @@ function TubeStopSearch() {
         console.log(data);
       });
 
-    console.log(tubeStop);
-
     /* todo: type infer data, output train times for selected station, include line in naptanTubeStops data */
   }
 
   return (
-    <div className="pt-2 relative mx-auto text-gray-600">
+    <div className="pt-2 relative text-gray-600">
       <select
         onChange={onTubeStopChange}
-        className="p-3 rounded-md"
+        className="p-3 rounded-md border-black border-2"
         name="tube-stops"
         value={tubeStop || ""}
         id="tube-stops"
@@ -39,7 +38,11 @@ function TubeStopSearch() {
           Select a tube stop
         </option>
         {TubeStopData.map((tubeStopItem) => (
-          <option id={tubeStopItem.naptanID} key={tubeStopItem.naptanID}>
+          <option
+            id={tubeStopItem.naptanID}
+            key={tubeStopItem.naptanID}
+            value={tubeStopItem.commonName}
+          >
             {tubeStopItem.commonName}
           </option>
         ))}
